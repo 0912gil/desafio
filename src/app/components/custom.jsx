@@ -1,16 +1,17 @@
-"use client"
 import React from 'react';
-import '@/globals.css'
 
-const Custom = ({ title, description, image, characteristics }) => {
+const Custom = ({ title, description, image, features }) => {
   return (
-    <div className="card">
-      {image && <img src={image} alt={title} />}
+    <div className="custom-component">
       <h1>{title}</h1>
       <p>{description}</p>
+      {image && <img src={image} alt="Custom" />}
       <ul>
-        {characteristics.map((item, index) => (
-          <li key={index}>{item}</li>
+        {features.map((feature, index) => (
+          <li key={index}>
+            <strong>{feature.label}: </strong>
+            <span>{feature.value}</span>
+          </li>
         ))}
       </ul>
     </div>
